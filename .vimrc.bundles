@@ -1,4 +1,4 @@
-" Environment {
+i" Environment {
 
     " Basics {
         set nocompatible        " Must be first line
@@ -207,4 +207,11 @@
 
     endif
 
+" }
+
+" Plugins {
+    " Setup vim-plug Support {
+        " The next line ensures that the ~/.vim/bundle/ system works
+        call plug#end()
+    " }
 " }

@@ -98,7 +98,8 @@ create_symlinks() {
     lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
 
     if program_exists "nvim"; then
-	mkdir -p "$target_path/.config/nvim/init.vim"
+        mkdir "$HOME/.config" 
+        lnif "$HOME/.vim"              "$target_path/.config/nvim"
         lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
     fi
 
@@ -139,13 +140,13 @@ sync_repo       "$APP_PATH" \
                 "$REPO_BRANCH" \
                 "$app_name"
 
-create_symlinks "$APP_PATH" \
-                "$HOME"
-
 sync_repo       "$HOME/.vim/bundle/vim-plug" \
                 "$PLUG_URL" \
                 "master" \
                 "vim-plug"
+
+create_symlinks "$APP_PATH" \
+                "$HOME"
 
 setup_plug    "$APP_PATH/.vimrc.bundles.default"
 
