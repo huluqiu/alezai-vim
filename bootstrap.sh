@@ -112,6 +112,11 @@ setup_plug() {
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
+    if [ -e "$HOME/.vim/bundle/vim-plug" ]; then
+        mkdir "$HOME/.vim/bundle/vim-plug/autoload"
+        lnif "$HOME/.vim/bundle/vim-plug/plug.vim" "$HOME/.vim/bundle/vim-plug/autoload/plug.vim"
+    fi
+
     VIM=vim
     if program_exists "nvim"; then
         VIM=nvim

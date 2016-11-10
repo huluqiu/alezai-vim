@@ -779,6 +779,7 @@
             let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
             let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
             let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
+        endif
     " }
 
     " Snippets {
