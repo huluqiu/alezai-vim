@@ -50,6 +50,7 @@
 	    Plug 'vim-airline/vim-airline'
 	    Plug 'vim-airline/vim-airline-themes'
             Plug 'easymotion/vim-easymotion'
+            Plug 'jistr/vim-nerdtree-tabs'
             Plug 'flazz/vim-colorschemes'
             Plug 'mbbill/undotree'
             Plug 'nathanaelkane/vim-indent-guides'
