@@ -2,10 +2,11 @@
 
 app_dir="$HOME/.alezai-vim"
 
-rm $HOME/.vimrc
-rm $HOME/.vimrc.bundles
-rm $HOME/.vimrc.before
-rm -rf $HOME/.vim
-rm -rf $HOME/.config
+rm -f $HOME/.vimrc
+rm -f $HOME/.vimrc.bundles
 
-rm -rf $app_dir
+rm -rf $HOME/.vimbackup/
+rm -rf $HOME/.vimviews/
+rm -rf $HOME/.vimswap/
+rm -rf $HOME/.vimundo/
+rm -rf $HOME/.vim/
