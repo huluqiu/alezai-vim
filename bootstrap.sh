@@ -5,7 +5,7 @@ app_name='alezai-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.alezai-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/huluqiu/alezai-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
-debug_mode='0'
+debug_mode='1'
 [ -z "$VUNDLE_URI" ] && PLUG_URL="https://github.com/junegunn/vim-plug.git"
 
 ############################  BASIC SETUP TOOLS
@@ -142,7 +142,9 @@ setup_powerline_font() {
                     "master" \
                     "fonts"
 
-    cd "$font_repo_path" && sh install.sh
+    if [ "$ret" -eq '0' ]; then
+        cd "$font_repo_path" && sh install.sh
+    fi
 }
 
 ############################ MAIN()
