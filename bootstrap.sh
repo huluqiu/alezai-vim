@@ -134,6 +134,17 @@ setup_plug() {
     debug
 }
 
+setup_powerline_font() {
+    local font_repo_path="$HOME/.vim/bundle/vim-airline/fonts"
+
+    sync_repo       "$font_repo_path" \
+                    "https://github.com/powerline/fonts.git" \
+                    "master" \
+                    "fonts"
+
+    cd "$font_repo_path" && sh install.sh
+}
+
 ############################ MAIN()
 variable_set "$HOME"
 program_must_exist "vim"
@@ -153,5 +164,7 @@ create_symlinks "$APP_PATH" \
                 "$HOME"
 
 setup_plug    "$APP_PATH/.vimrc.bundles"
+
+setup_powerline_font
 
 msg             "\nInstalling completed."
