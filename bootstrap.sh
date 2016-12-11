@@ -152,6 +152,6 @@ sync_repo       "$HOME/.vim/bundle/vim-plug" \
 create_symlinks "$APP_PATH" \
                 "$HOME"
 
-setup_plug    "$APP_PATH/.vimrc.bundles.default"
+setup_plug    "$APP_PATH/.vimrc.bundles"
 
-msg             "\nThanks for installing $app_name."
+msg             "\nInstalling completed."
