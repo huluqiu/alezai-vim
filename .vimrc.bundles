@@ -20,7 +20,6 @@ Plug 'junegunn/vim-plug'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'mhinz/vim-signify'
 " }
 
 " Edit {
@@ -38,6 +37,7 @@ Plug 'junegunn/vim-plug'
 
 " Git {
     Plug 'tpope/vim-fugitive'
+    Plug 'mhinz/vim-signify'
 " }
 
 call plug#end()
