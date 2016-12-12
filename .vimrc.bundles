@@ -36,4 +36,8 @@ Plug 'junegunn/vim-plug'
     Plug 'honza/vim-snippets'
 " }
 
+" Git {
+    Plug 'tpope/vim-fugitive'
+" }
+
 call plug#end()
