@@ -99,6 +99,9 @@
     map <C-L> <C-W>l
     map <C-H> <C-W>h
 
+    cnoremap <C-p> <Up>
+    cnoremap <C-n> <Down>
+
     " Easier horizontal scrolling
     map zl zL
     map zh zH
