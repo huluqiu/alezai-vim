@@ -52,7 +52,6 @@
         color solarized             " Load a colorscheme
     endif
 
-    set showmode                    " Display the current mode
     set cursorline                  " Highlight current line
 
     highlight clear SignColumn      " SignColumn should match background
@@ -63,7 +62,6 @@
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
-    set winminheight=0              " Windows can be 0 line high
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
     set wildmenu                    " Show list instead of just completing
@@ -71,7 +69,6 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 " }
@@ -92,7 +89,7 @@
 " }
 
 " Key (re)Mappings {
-    nnoremap <leader>sv :source ~/.vimrc<CR>
+    nnoremap <leader>sv :source $MYVIMRC<CR>
 
     map <C-J> <C-W>j
     map <C-K> <C-W>k
@@ -164,6 +161,10 @@
             endif
         endif
     "}
+
+    " tagbar {
+        nnoremap <Leader>tt :TagbarToggle<CR>
+    " }
 
     " neocomplete {
         if isdirectory(expand("~/.vim/bundle/neocomplete.vim/"))
