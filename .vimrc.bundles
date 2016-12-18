@@ -30,10 +30,6 @@ Plug 'junegunn/vim-plug'
 " }
 
 " Snippets & AutoComplete {
-    Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/neosnippet'
-    Plug 'Shougo/neosnippet-snippets'
-    Plug 'honza/vim-snippets'
 " }
 
 " Git {
