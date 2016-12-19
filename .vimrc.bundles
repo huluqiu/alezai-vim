@@ -17,7 +17,7 @@ Plug 'junegunn/vim-plug'
 
 " UI {
     Plug 'altercation/vim-colors-solarized'
-    Plug 'flazz/vim-colorschemes'
+    "Plug 'flazz/vim-colorschemes'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
@@ -30,6 +30,9 @@ Plug 'junegunn/vim-plug'
 " }
 
 " Snippets & AutoComplete {
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 " }
 
 " Git {

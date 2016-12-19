@@ -187,6 +187,22 @@
             let g:airline_section_z = airline#section#create_right(['%l','%c'])
         endif
     " }
+
+    " YouCompleteMe {
+        let g:ycm_global_ycm_extra_conf = $HOME."/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+        let g:ycm_collect_identifiers_from_tags_files = 1
+        let g:ycm_use_ultisnips_completer = 1
+
+        " remap Ultisnips for compatibility for YCM
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+        nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+        " Disable the neosnippet preview candidate window
+        set completeopt-=preview
+    " }
 " }
 
 " Functions {
