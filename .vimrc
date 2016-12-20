@@ -132,7 +132,6 @@
 
             let NERDTreeShowBookmarks=1
             let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-            let NERDTreeQuitOnOpen=1
             let NERDTreeShowHidden=1
         endif
     " }
