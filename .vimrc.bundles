@@ -21,6 +21,7 @@ Plug 'junegunn/vim-plug'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'scrooloose/syntastic'
 " }
 
 " Edit {

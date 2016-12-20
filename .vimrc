@@ -162,7 +162,9 @@
     "}
 
     " tagbar {
-        nnoremap <Leader>tt :TagbarToggle<CR>
+        if isdirectory(expand("~/.vim/bundle/tagbar/"))
+            nnoremap <Leader>tt :TagbarToggle<CR>
+        endif
     " }
 
     " indent_guides {
@@ -188,19 +190,32 @@
     " }
 
     " YouCompleteMe {
-        let g:ycm_global_ycm_extra_conf = $HOME."/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-        let g:ycm_collect_identifiers_from_tags_files = 1
-        let g:ycm_use_ultisnips_completer = 1
+        if isdirectory(expand("~/.vim/bundle/YouCompleteMe/"))
+            let g:ycm_global_ycm_extra_conf = $HOME."/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+            let g:ycm_collect_identifiers_from_tags_files = 1
+            let g:ycm_use_ultisnips_completer = 1
+            let g:ycm_show_diagnostics_ui = 0
 
-        " remap Ultisnips for compatibility for YCM
-        let g:UltiSnipsExpandTrigger = '<C-j>'
-        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+            " remap Ultisnips for compatibility for YCM
+            let g:UltiSnipsExpandTrigger = '<C-j>'
+            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-        nnoremap gd :YcmCompleter GoTo<CR>
+            nnoremap gd :YcmCompleter GoTo<CR>
 
-        " Disable the neosnippet preview candidate window
-        set completeopt-=preview
+            " Disable the neosnippet preview candidate window
+            set completeopt-=preview
+        endif
+    " }
+
+    " syntastic {
+        if isdirectory(expand("~/.vim/bundle/syntastic/"))
+            let g:syntastic_always_populate_loc_list = 1
+            let g:syntastic_check_on_open = 1
+            let g:syntastic_check_on_wq = 0
+            let g:syntastic_error_symbol = '✗'
+            let g:syntastic_warning_symbol = '⚠'
+        endif
     " }
 " }
 
