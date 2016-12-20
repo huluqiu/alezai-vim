@@ -197,7 +197,7 @@
         let g:UltiSnipsJumpForwardTrigger = '<C-j>'
         let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-        nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+        nnoremap gd :YcmCompleter GoTo<CR>
 
         " Disable the neosnippet preview candidate window
         set completeopt-=preview
