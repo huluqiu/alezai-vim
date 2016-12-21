@@ -120,9 +120,21 @@
     " For when you forget to sudo.. Really Write the file.
     cmap w!! w !sudo tee % >/dev/null
 
-    " Map <Leader>ff to display all lines with keyword under cursor
-    " and ask which one to jump to
+    " Map <Leader>ff to display all lines with keyword under cursor and ask which one to jump to
     nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+    " Buffer
+    nnoremap <silent> [b :bprevious<CR>
+    nnoremap <silent> ]b :bnext<CR>
+    nnoremap <silent> [B :bfirst<CR>
+    nnoremap <silent> ]B :blast<CR>
+
+    " Locatoin list
+    nnoremap <silent> [l :try<bar>lprevious<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>llast<bar>endtry<cr>
+    nnoremap <silent> ]l :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
+    nnoremap <silent> [L :lfirst<CR>
+    nnoremap <silent> ]L :llast<CR>
+    nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 " }
 
 " Plugins {
@@ -255,5 +267,50 @@
             endfor
         endfunction
         call InitializeDirectories()
+    " }
+
+    " ToggleLocationList {
+        function! s:GetBufferList() 
+            redir =>buflist 
+            silent! ls 
+            redir END 
+            return buflist 
+        endfunction
+
+        function! ToggleLocationList()
+            let curbufnr = winbufnr(0)
+            for bufnum in map(filter(split(s:GetBufferList(), '\n'), 'v:val =~ "Location List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+                if curbufnr == bufnum
+                    lclose
+                    return
+                endif
+            endfor
+
+            let winnr = winnr()
+            let prevwinnr = winnr("#")
+
+            let nextbufnr = winbufnr(winnr + 1)
+            try
+                lopen
+            catch /E776/
+                echohl ErrorMsg 
+                echo "Location List is Empty."
+                echohl None
+                return
+            endtry
+            if winbufnr(0) == nextbufnr
+                lclose
+                if prevwinnr > winnr
+                    let prevwinnr-=1
+                endif
+            else
+                if prevwinnr > winnr
+                    let prevwinnr+=1
+                endif
+            endif
+            " restore previous window
+            exec prevwinnr."wincmd w"
+            exec winnr."wincmd w"
+        endfunction
     " }
 " }
