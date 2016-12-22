@@ -6,41 +6,22 @@
 
 " General {
     set background=dark         " Assume a dark background
+    set encoding=utf-8
+
+    set clipboard=unnamed
+    set virtualedit=onemore     " Allow for cursor beyond last character
+    set history=1000            " Store a ton of history (default is 20)
+
+    set nobackup
+    set nowritebackup
+    set noswapfile
+
+    set undofile                " So is persistent undo ...
+    set undolevels=1000         " Maximum number of changes that can be undone
+    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
-    scriptencoding utf-8
-
-    if has('clipboard')
-        if has('unnamedplus')  " When possible use + register for copy-paste
-            set clipboard=unnamed,unnamedplus
-        else         " On mac and Windows, use * register for copy-paste
-            set clipboard=unnamed
-        endif
-    endif
-
-    set virtualedit=onemore             " Allow for cursor beyond last character
-    set history=1000                    " Store a ton of history (default is 20)
-    set backup                  " Backups are nice ...
-    if has('persistent_undo')
-        set undofile                " So is persistent undo ...
-        set undolevels=1000         " Maximum number of changes that can be undone
-        set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
-    endif
-
-    " RestoreCursor {
-    " Restore cursor to file position in previous editing session
-        function! ResCur()
-            if line("'\"") <= line("$")
-                silent! normal! g`"
-                return 1
-            endif
-        endfunction
-
-        augroup resCur
-            autocmd!
-            autocmd BufWinEnter * call ResCur()
-        augroup END
-    " }
 " }
 
 " Vim UI {
@@ -61,7 +42,6 @@
     set number                      " Line numbers on
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
-    set hlsearch                    " Highlight search terms
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
     set wildmenu                    " Show list instead of just completing
@@ -84,7 +64,6 @@
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
 
-    autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
     autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 " }
 
@@ -128,16 +107,27 @@
     nnoremap <silent> ]b :bnext<CR>
     nnoremap <silent> [B :bfirst<CR>
     nnoremap <silent> ]B :blast<CR>
-
-    " Locatoin list
-    nnoremap <silent> [l :try<bar>lprevious<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>llast<bar>endtry<cr>
-    nnoremap <silent> ]l :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
-    nnoremap <silent> [L :lfirst<CR>
-    nnoremap <silent> ]L :llast<CR>
-    nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 " }
 
 " Plugins {
+    " Alezai {
+        if isdirectory(expand("~/.vim/bundle/vim-alezai"))
+            " Dirs
+            let g:alezai_undodir = $HOME . '/.vim/.vimundo/'
+            let g:alezai_rescur = 1
+
+            " Locatoin list
+            nnoremap <silent> [l :call LocationPreviousCycle()<CR>
+            nnoremap <silent> ]l :call LocationNextCycle()<CR>
+            nnoremap <silent> [L :lfirst<CR>
+            nnoremap <silent> ]L :llast<CR>
+            nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+
+            " Quickfix list
+            nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+        endif
+    " }
+
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
@@ -228,89 +218,5 @@
             let g:syntastic_error_symbol = '✗'
             let g:syntastic_warning_symbol = '⚠'
         endif
-    " }
-" }
-
-" Functions {
-    " Initialize directories {
-        function! InitializeDirectories()
-            let parent = $HOME . '/.vim/'
-
-            if !isdirectory(parent)
-                call mkdir(parent)
-            endif
-
-            let prefix = 'vim'
-            let dir_list = {
-                        \ 'backup': 'backupdir',
-                        \ 'views': 'viewdir',
-                        \ 'swap': 'directory' }
-
-            if has('persistent_undo')
-                let dir_list['undo'] = 'undodir'
-            endif
-
-            let common_dir = parent . '.' . prefix
-
-            for [dirname, settingname] in items(dir_list)
-                let directory = common_dir . dirname . '/'
-                if !isdirectory(directory)
-                    call mkdir(directory)
-                endif
-                if !isdirectory(directory)
-                    echo "Warning: Unable to create backup directory: " . directory
-                    echo "Try: mkdir -p " . directory
-                else
-                    let directory = substitute(directory, " ", "\\\\ ", "g")
-                    exec "set " . settingname . "=" . directory
-                endif
-            endfor
-        endfunction
-        call InitializeDirectories()
-    " }
-
-    " ToggleLocationList {
-        function! s:GetBufferList() 
-            redir =>buflist 
-            silent! ls 
-            redir END 
-            return buflist 
-        endfunction
-
-        function! ToggleLocationList()
-            let curbufnr = winbufnr(0)
-            for bufnum in map(filter(split(s:GetBufferList(), '\n'), 'v:val =~ "Location List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-                if curbufnr == bufnum
-                    lclose
-                    return
-                endif
-            endfor
-
-            let winnr = winnr()
-            let prevwinnr = winnr("#")
-
-            let nextbufnr = winbufnr(winnr + 1)
-            try
-                lopen
-            catch /E776/
-                echohl ErrorMsg 
-                echo "Location List is Empty."
-                echohl None
-                return
-            endtry
-            if winbufnr(0) == nextbufnr
-                lclose
-                if prevwinnr > winnr
-                    let prevwinnr-=1
-                endif
-            else
-                if prevwinnr > winnr
-                    let prevwinnr+=1
-                endif
-            endif
-            " restore previous window
-            exec prevwinnr."wincmd w"
-            exec winnr."wincmd w"
-        endfunction
     " }
 " }
