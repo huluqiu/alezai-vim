@@ -116,6 +116,13 @@ setup_plug() {
         lnif "$HOME/.vim/bundle/vim-plug/plug.vim" "$HOME/.vim/bundle/vim-plug/autoload/plug.vim"
     fi
 
+    # add local plug
+    local plugin_alezai="$HOME/.vim/bundle/vim-alezai/plugin"
+    if [ ! -e "$plugin_alezai" ]; then
+        mkdir -p "$plugin_alezai"
+    fi
+    lnif "$APP_PATH/vim-alezai.vim" "$plugin_alezai/vim-alezai.vim"
+
     VIM=vim
     if program_exists "nvim"; then
         VIM=nvim
