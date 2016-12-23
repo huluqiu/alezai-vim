@@ -207,6 +207,9 @@
 
             " Disable the neosnippet preview candidate window
             set completeopt-=preview
+
+            " Python
+            let g:ycm_python_binary_path = '/usr/local/bin/python3'
         endif
     " }
 
@@ -217,6 +220,8 @@
             let g:syntastic_check_on_wq = 0
             let g:syntastic_error_symbol = '✗'
             let g:syntastic_warning_symbol = '⚠'
+
+            let g:syntastic_python_checkers = ['flake8', 'python']
         endif
     " }
 " }
