@@ -7,6 +7,8 @@
 " General {
     set background=dark         " Assume a dark background
     set encoding=utf-8
+    let $LANG='en'
+    set langmenu=en
 
     set clipboard=unnamed
     set virtualedit=onemore     " Allow for cursor beyond last character
