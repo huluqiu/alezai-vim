@@ -43,6 +43,7 @@
     set backspace=indent,eol,start  " Backspace for dummies
     set number                      " Line numbers on
     set showmatch                   " Show matching brackets/parenthesis
+    set nohlsearch
     set incsearch                   " Find as you type search
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
