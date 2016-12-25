@@ -31,20 +31,20 @@
     function! LocationNextCycle()
         try
             lnext
-        catch /E553/
+        catch /^Vim\%((\a\+)\)\=:E553/
             lfirst
-        catch /E42/
-            echo "E42: No Errors"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+            echo v:exception
         endtry
     endfunction
 
     function! LocationPreviousCycle()
         try
             lprevious
-        catch /E553/
+        catch /^Vim\%((\a\+)\)\=:E553/
             llast
-        catch /E42/
-            echo "E42: No Errors"
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+            echo v:exception
         endtry
     endfunction
 

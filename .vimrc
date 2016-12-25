@@ -216,15 +216,16 @@
         endif
     " }
 
-    " syntastic {
-        if isdirectory(expand("~/.vim/bundle/syntastic/"))
-            let g:syntastic_always_populate_loc_list = 1
-            let g:syntastic_check_on_open = 1
-            let g:syntastic_check_on_wq = 0
-            let g:syntastic_error_symbol = '✗'
-            let g:syntastic_warning_symbol = '⚠'
+    " ale {
+        let g:ale_linters = {
+        \   'c': ['clang'],
+        \   'c++': ['gcc'],
+        \   'python': ['flake8'],
+        \   'javascript': ['eslint'],
+        \}
 
-            let g:syntastic_python_checkers = ['flake8', 'python']
-        endif
+        let g:ale_sign_error = '✗'
+        let g:ale_sign_warning = '⚠'
+        let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     " }
 " }
