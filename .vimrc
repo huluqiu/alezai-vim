@@ -30,7 +30,7 @@
     if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
+        let g:solarized_contrast="high"
         let g:solarized_visibility="normal"
         color solarized             " Load a colorscheme
     endif
@@ -200,20 +200,18 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_show_diagnostics_ui = 0
-
-            " remap Ultisnips for compatibility for YCM
-            let g:UltiSnipsExpandTrigger = '<C-j>'
-            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
+            let g:ycm_python_binary_path = '/usr/local/bin/python3'
             nnoremap gd :YcmCompleter GoTo<CR>
 
             " Disable the neosnippet preview candidate window
             set completeopt-=preview
-
-            " Python
-            let g:ycm_python_binary_path = '/usr/local/bin/python3'
         endif
+    " }
+
+    " ultisnips {
+        let g:UltiSnipsExpandTrigger = '<C-j>'
+        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
     " }
 
     " ale {
@@ -224,6 +222,7 @@
         \   'javascript': ['eslint'],
         \}
 
+        let g:ale_sign_column_always = 1
         let g:ale_sign_error = '✗'
         let g:ale_sign_warning = '⚠'
         let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
