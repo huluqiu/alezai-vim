@@ -13,6 +13,7 @@ Plug 'junegunn/vim-plug'
 " Navigate {
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tacahiroy/ctrlp-funky'
     Plug 'mileszs/ack.vim'
