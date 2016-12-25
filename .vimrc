@@ -228,4 +228,9 @@
         let g:ale_sign_warning = '⚠'
         let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     " }
+
+    " fugitive {
+        nnoremap <silent> <leader>gs :Gstatus<CR>
+        nnoremap <silent> <leader>gd :Gvdiff<CR>
+    " }
 " }
