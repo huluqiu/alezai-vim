@@ -66,8 +66,6 @@
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
-
-    autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
 " }
 
 " Key (re)Mappings {
