@@ -118,14 +118,18 @@
             let g:alezai_rescur = 1
 
             " Locatoin list
+            nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
             nnoremap <silent> [l :call LocationPreviousCycle()<CR>
             nnoremap <silent> ]l :call LocationNextCycle()<CR>
             nnoremap <silent> [L :lfirst<CR>
             nnoremap <silent> ]L :llast<CR>
-            nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 
             " Quickfix list
             nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+            nnoremap <silent> ]c :call QuickfixNextCycle()<CR>
+            nnoremap <silent> [c :call QuickfixPreviousCycle()<CR>
+            nnoremap <silent> [C :cfirst<CR>
+            nnoremap <silent> ]C :clast<CR>
         endif
     " }
 
@@ -184,10 +188,11 @@
             let g:airline_powerline_fonts = 1
             let g:airline#extensions#tabline#enabled = 1
 
-            let g:airline_section_a = airline#section#create(['mode','branch'])
+            let g:airline_section_a = airline#section#create(['mode'])
             let g:airline_section_c = airline#section#create(['filetype'])
-            let g:airline_section_x = airline#section#create(['%P'])
-            let g:airline_section_y = airline#section#create(['%B'])
+
+            let g:airline_section_x = ''    "placeholder
+            let g:airline_section_y = airline#section#create(['%P'])
             let g:airline_section_z = airline#section#create_right(['%l','%c'])
         endif
     " }
@@ -207,27 +212,47 @@
     " }
 
     " ultisnips {
-        let g:UltiSnipsExpandTrigger = '<C-j>'
-        let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-        let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-    " }
-
-    " ale {
-        let g:ale_linters = {
-        \   'c': ['clang'],
-        \   'c++': ['gcc'],
-        \   'python': ['flake8'],
-        \   'javascript': ['eslint'],
-        \}
-
-        let g:ale_sign_column_always = 1
-        let g:ale_sign_error = '✗'
-        let g:ale_sign_warning = '⚠'
-        let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+        if isdirectory(expand("~/.vim/bundle/ultisnips/"))
+            let g:UltiSnipsExpandTrigger = '<C-j>'
+            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+        endif
     " }
 
     " fugitive {
-        nnoremap <silent> <leader>gs :Gstatus<CR>
-        nnoremap <silent> <leader>gd :Gvdiff<CR>
+        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+            nnoremap <silent> <leader>gs :Gstatus<CR>
+            nnoremap <silent> <leader>gd :Gvdiff<CR>
+        endif
+    " }
+
+    " ale {
+        if isdirectory(expand("~/.vim/bundle/ale/"))
+            let g:ale_linters = {
+            \   'c': ['clang'],
+            \   'c++': ['gcc'],
+            \   'python': ['flake8'],
+            \   'javascript': ['eslint'],
+            \}
+
+            let g:ale_sign_column_always = 1
+            let g:ale_sign_error = '✗'
+            let g:ale_sign_warning = '⚠'
+            let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+            nmap <silent> ]e <Plug>(ale_next_wrap)
+            nmap <silent> [e <Plug>(ale_previous_wrap)
+        endif
+    " }
+
+    " AsyncRun {
+        if isdirectory(expand("~/.vim/bundle/asyncrun.vim/"))
+            let g:airline_section_x = airline#section#create(['%{g:asyncrun_status}'])
+
+            command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+            nnoremap <leader>r :Make<CR>
+            nnoremap <leader>. :AsyncStop<CR>
+        endif
     " }
 " }

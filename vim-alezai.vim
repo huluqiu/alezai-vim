@@ -48,6 +48,26 @@
         endtry
     endfunction
 
+    function! QuickfixNextCycle()
+        try
+            cnext
+        catch /^Vim\%((\a\+)\)\=:E553/
+            cfirst
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+            echo v:exception
+        endtry
+    endfunction
+
+    function! QuickfixPreviousCycle()
+        try
+            cprevious
+        catch /^Vim\%((\a\+)\)\=:E553/
+            clast
+        catch /^Vim\%((\a\+)\)\=:E\%(776\|42\):/
+            echo v:exception
+        endtry
+    endfunction
+
     function! s:GetBufferList()
         redir =>buflist
         silent! ls

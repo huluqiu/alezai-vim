@@ -39,6 +39,10 @@ Plug 'junegunn/vim-plug'
     Plug 'honza/vim-snippets'
 " }
 
+" AsyncTool {
+    Plug 'skywind3000/asyncrun.vim'
+" }
+
 " Checker {
     Plug 'w0rp/ale'
 " }
