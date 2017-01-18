@@ -10,7 +10,6 @@
     let $LANG='en'
     set langmenu=en
 
-    set clipboard=unnamed
     set virtualedit=onemore     " Allow for cursor beyond last character
     set history=1000            " Store a ton of history (default is 20)
 
@@ -69,6 +68,7 @@
 " }
 
 " Key (re)Mappings {
+    let mapleader = ','
     nnoremap <leader>sv :source $MYVIMRC<CR>
 
     map <C-J> <C-W>j
@@ -108,6 +108,9 @@
     nnoremap <silent> ]b :bnext<CR>
     nnoremap <silent> [B :bfirst<CR>
     nnoremap <silent> ]B :blast<CR>
+
+    " copy
+    vnoremap <C-c> "*y
 " }
 
 " Plugins {
