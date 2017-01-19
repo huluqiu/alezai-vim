@@ -245,6 +245,10 @@
 
             nmap <silent> ]e <Plug>(ale_next_wrap)
             nmap <silent> [e <Plug>(ale_previous_wrap)
+
+            " flake8 switch to python3
+            let g:ale_python_flake8_executable = 'python3'
+            let g:ale_python_flake8_args = '-m flake8'
         endif
     " }
 
