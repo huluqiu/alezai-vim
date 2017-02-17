@@ -141,7 +141,7 @@
             map <C-e> <plug>NERDTreeTabsToggle<CR>
 
             let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+            let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store']
             let NERDTreeShowHidden=1
         endif
     " }
