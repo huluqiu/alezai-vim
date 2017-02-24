@@ -26,12 +26,19 @@
 " }
 
 " Vim UI {
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
+    "if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        "let g:solarized_termcolors=256
+        "let g:solarized_termtrans=1
+        "let g:solarized_contrast="high"
+        "let g:solarized_visibility="normal"
+        "color solarized             " Load a colorscheme
+    "endif
+    if filereadable(expand("~/.vim/bundle/github.vim/colors/github.vim"))
+        if (has("termguicolors"))
+             set termguicolors
+        endif
+        let g:airline_theme='github'
+        colorscheme github
     endif
 
     set cursorline                  " Highlight current line
