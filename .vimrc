@@ -265,7 +265,7 @@
 
             command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 
-            nnoremap <leader>r :Make<CR>
+            nnoremap <leader>c :Make<CR>
             nnoremap <leader>. :AsyncStop<CR>
         endif
     " }
