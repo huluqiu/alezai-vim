@@ -213,7 +213,8 @@
             let g:ycm_collect_identifiers_from_tags_files = 1
             let g:ycm_use_ultisnips_completer = 1
             let g:ycm_show_diagnostics_ui = 0
-            let g:ycm_python_binary_path = '/usr/local/bin/python3'
+            let g:ycm_python_binary_path = 'python'
+            let g:ycm_server_python_interpreter = 'python3'
             nnoremap gd :YcmCompleter GoTo<CR>
 
             " Disable the neosnippet preview candidate window
@@ -253,9 +254,10 @@
             nmap <silent> ]e <Plug>(ale_next_wrap)
             nmap <silent> [e <Plug>(ale_previous_wrap)
 
-            " flake8 switch to python3
-            let g:ale_python_flake8_executable = 'python3'
-            let g:ale_python_flake8_args = '-m flake8'
+            " flake8
+            let g:ale_python_flake8_executable = 'flake8'
+            "let g:ale_python_flake8_executable = '/usr/local/bin/python3'
+            "let g:ale_python_flake8_args = '-m flake8'
         endif
     " }
 
