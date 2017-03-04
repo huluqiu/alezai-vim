@@ -118,6 +118,9 @@
 
     " copy
     vnoremap <C-c> "*y
+
+    " close buffer(兼容Nerdtree)
+    nnoremap <leader>b :bp<cr>:bd #<cr>
 " }
 
 " Plugins {

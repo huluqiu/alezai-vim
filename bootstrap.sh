@@ -95,8 +95,8 @@ create_symlinks() {
 
     lnif "$source_path/.vimrc"         "$target_path/.vimrc"
     lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
-    lnif "$source_path/compiler"      "$target_path/.vim/compiler"
-    lnif "$source_path/after"         "$target_path/.vim/after"
+    lnif "$source_path/compiler"       "$target_path/.vim/compiler"
+    lnif "$source_path/after"          "$target_path/.vim/after"
 
     if program_exists "nvim"; then
         mkdir "$HOME/.config" 
