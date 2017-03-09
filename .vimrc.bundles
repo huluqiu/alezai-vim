@@ -32,6 +32,7 @@ Plug 'junegunn/vim-plug'
     Plug 'tpope/vim-surround'
     Plug 'jiangmiao/auto-pairs'
     Plug 'scrooloose/nerdcommenter'
+    Plug 'Vimjas/vim-python-pep8-indent'
 " }
 
 " Snippets & AutoComplete {
