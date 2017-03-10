@@ -7,9 +7,10 @@ func! CompileRunGcc()
     if filereadable(makefile)
         exec "! ./main"
     else
-        exec "w"
-        exec "!gcc % -o %<"
+        exec "silent w"
+        exec "silent !gcc % -o %<"
         exec "! ./%<"
+        exec "silent ! rm ./%<"
     endif
 endfunc
 

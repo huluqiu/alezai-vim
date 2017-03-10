@@ -120,7 +120,10 @@
     vnoremap <C-c> "*y
 
     " close buffer(兼容Nerdtree)
-    nnoremap <leader>b :bp<cr>:bd #<cr>
+    nnoremap <leader>b :bp<CR>:bd #<CR>
+
+    " 快捷保存
+    nnoremap <C-s> :w<CR>
 " }
 
 " Plugins {
