@@ -124,6 +124,7 @@
 
     " 快捷保存
     nnoremap <C-s> :w<CR>
+    inoremap <C-s> <ESC>:w<CR>
 " }
 
 " Plugins {
