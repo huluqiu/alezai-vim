@@ -23,6 +23,8 @@
 
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
+
+    set mouse=""
 " }
 
 " Vim UI {
