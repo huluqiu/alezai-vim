@@ -149,6 +149,9 @@
             nnoremap <silent> [c :call QuickfixPreviousCycle()<CR>
             nnoremap <silent> [C :cfirst<CR>
             nnoremap <silent> ]C :clast<CR>
+
+            " toggle left sign
+            noremap <leader>ts :call ToggleLeftSign()<CR>
         endif
     " }
 

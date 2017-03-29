@@ -125,3 +125,12 @@
         endif
     endfunction
 " }
+
+" {
+    function! ToggleLeftSign()
+        set number!
+        if isdirectory(expand("~/.vim/bundle/vim-gitgutter/"))
+            GitGutterSignsToggle
+        endif
+    endfunction
+" }
