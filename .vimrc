@@ -201,6 +201,9 @@
     " tagbar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             nnoremap <Leader>tt :TagbarToggle<CR>
+            let g:tagbar_width = 30
+            let g:tagbar_autofocus = 1
+            let g:tagbar_sort = 0
         endif
     " }
 
