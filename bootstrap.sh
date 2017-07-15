@@ -156,6 +156,11 @@ setup_powerline_font() {
     fi
 }
 
+ycm_install() {
+    cd "$HOME/.vim/bundle/YouCompleteMe"
+    python install.py --clang-completer --tern-completer
+}
+
 ############################ MAIN()
 variable_set "$HOME"
 program_must_exist "vim"
@@ -177,5 +182,7 @@ create_symlinks "$APP_PATH" \
 setup_plug    "$APP_PATH/.vimrc.bundles"
 
 setup_powerline_font
+
+ycm_install
 
 msg             "\nInstalling completed."
