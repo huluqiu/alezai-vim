@@ -7,8 +7,8 @@
 " General {
     set background=dark         " Assume a dark background
     set encoding=utf-8
-    let $LANG='en'
-    set langmenu=en
+    let $LANG='en_US'
+    set langmenu=en_US
 
     set virtualedit=onemore     " Allow for cursor beyond last character
     set history=1000            " Store a ton of history (default is 20)
@@ -74,6 +74,11 @@
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
+" }
+
+" Custome filetype {
+    autocmd BufNewFile,BufRead Podfile set ft=ruby
+    autocmd BufNewFile,BufRead *.podspec set ft=ruby
 " }
 
 " Key (re)Mappings {
