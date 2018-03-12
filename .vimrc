@@ -302,4 +302,17 @@
             nnoremap <leader>. :AsyncStop<CR>
         endif
     " }
+
+    " Markdown {
+        if isdirectory(expand("~/.vim/bundle/vim-markdown"))
+            let g:vim_markdown_folding_disabled = 1
+            let g:vim_markdown_new_list_item_indent = 0
+            let g:vim_markdown_toc_autofit = 1
+        endif
+        if isdirectory(expand("~/.vim/bundle/vim-markdown-preview"))
+            let vim_markdown_preview_hotkey='<leader>r'
+            let vim_markdown_preview_browser='Google Chrome'
+            let vim_markdown_preview_github=1
+        endif
+    " }
 " }
