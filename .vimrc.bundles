@@ -59,4 +59,8 @@ Plug 'junegunn/vim-plug'
     Plug 'plasticboy/vim-markdown'
     Plug 'JamshedVesuna/vim-markdown-preview'
 " }
+
+" PlantUML {
+    Plug 'aklt/plantuml-syntax'
+" }
 call plug#end()

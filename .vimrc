@@ -315,4 +315,10 @@
             let vim_markdown_preview_github=1
         endif
     " }
+
+    " PlantUML {
+        if isdirectory(expand("~/.vim/bundle/plantuml-syntax"))
+            let g:plantuml_executable_script='java -jar ~/Documents/lib/java/plantuml.jar'
+        endif
+    " }
 " }
