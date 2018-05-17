@@ -33,6 +33,7 @@ Plug 'junegunn/vim-plug'
     Plug 'jiangmiao/auto-pairs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'Vimjas/vim-python-pep8-indent'
+    Plug 'terryma/vim-multiple-cursors'
 " }
 
 " Snippets & AutoComplete {
