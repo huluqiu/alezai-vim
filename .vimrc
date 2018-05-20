@@ -245,8 +245,18 @@
             let g:ycm_show_diagnostics_ui = 0
             let g:ycm_python_binary_path = 'python'
             let g:ycm_server_python_interpreter = 'python3'
+            let g:ycm_filetype_blacklist = {
+                \ 'tagbar' : 1,
+                \ 'qf' : 1,
+                \ 'notes' : 1,
+                \ 'unite' : 1,
+                \ 'text' : 1,
+                \ 'vimwiki' : 1,
+                \ 'pandoc' : 1,
+                \ 'infolog' : 1,
+                \ 'mail' : 1
+                \}
             nnoremap gd :YcmCompleter GoTo<CR>
-
             " Disable the neosnippet preview candidate window
             set completeopt-=preview
         endif
