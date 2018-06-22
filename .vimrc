@@ -172,30 +172,12 @@
         endif
     " }
 
-    " ctrlp {
-        if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
-            let g:ctrlp_working_path_mode = 'ra'
-            let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': 'find %s -type f'
-            \ }
-
-            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
-                " CtrlP extensions
-                let g:ctrlp_extensions = ['funky']
-
-                "funky
-                nnoremap <Leader>fu :CtrlPFunky<Cr>
-            endif
+    " fzf {
+        if isdirectory(expand("~/.vim/bundle/fzf.vim/"))
+            nnoremap <c-p> :Files<Cr>
+            let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
         endif
-    "}
+    " }
 
     " tagbar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
