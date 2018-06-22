@@ -64,4 +64,13 @@ Plug 'junegunn/vim-plug'
 " PlantUML {
     Plug 'aklt/plantuml-syntax'
 " }
+
+" Swift {
+    Plug 'keith/swift.vim'
+" }
+
+" JavaScript {
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+" }
 call plug#end()
