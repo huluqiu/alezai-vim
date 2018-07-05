@@ -57,20 +57,10 @@ Plug 'junegunn/vim-plug'
 
 " Markdown {
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
     Plug 'JamshedVesuna/vim-markdown-preview'
 " }
 
-" PlantUML {
-    Plug 'aklt/plantuml-syntax'
-" }
-
-" Swift {
-    Plug 'keith/swift.vim'
-" }
-
-" JavaScript {
-    Plug 'pangloss/vim-javascript'
-    Plug 'mxw/vim-jsx'
+" Polyglot {
+    Plug 'sheerun/vim-polyglot'
 " }
 call plug#end()
