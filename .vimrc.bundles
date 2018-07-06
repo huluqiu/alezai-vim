@@ -18,14 +18,16 @@ Plug 'junegunn/vim-plug'
     Plug 'majutsushi/tagbar'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
+    Plug 'mhinz/vim-startify'
+    "Distraction-free writing in Vim
+    Plug 'junegunn/goyo.vim'
 " }
 
 " UI {
-    Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'jnurmine/Zenburn'
+    Plug 'albertorestifo/github.vim', { 'commit': '5dd1be6ada9638603ae530371e97f4940cea4506' }
 " }
 
 " Edit {
