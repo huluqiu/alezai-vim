@@ -63,6 +63,6 @@ Plug 'junegunn/vim-plug'
 " }
 
 " Polyglot {
-    Plug 'sheerun/vim-polyglot'
+    Plug 'huluqiu/vim-polyglot'
 " }
 call plug#end()

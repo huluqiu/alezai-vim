@@ -302,22 +302,22 @@
         endif
     " }
 
-    " Markdown {
-        if isdirectory(expand("~/.vim/bundle/vim-markdown"))
+    " Polyglot {
+        if isdirectory(expand("~/.vim/bundle/vim-polyglot/"))
+            "markdown
             let g:vim_markdown_folding_disabled = 1
             let g:vim_markdown_new_list_item_indent = 0
             let g:vim_markdown_toc_autofit = 1
+            "plantuml
+            let g:plantuml_executable_script='java -jar ~/Documents/lib/java/plantuml.jar'
         endif
+    " }
+
+    " Markdown {
         if isdirectory(expand("~/.vim/bundle/vim-markdown-preview"))
             let vim_markdown_preview_hotkey='<leader>r'
             let vim_markdown_preview_browser='Google Chrome'
             let vim_markdown_preview_github=1
-        endif
-    " }
-
-    " PlantUML {
-        if isdirectory(expand("~/.vim/bundle/plantuml-syntax"))
-            let g:plantuml_executable_script='java -jar ~/Documents/lib/java/plantuml.jar'
         endif
     " }
 " }
