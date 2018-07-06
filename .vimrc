@@ -155,6 +155,7 @@
     " NerdTree {
         if isdirectory(expand("~/.vim/bundle/nerdtree"))
             map <C-e> <plug>NERDTreeTabsToggle<CR>
+            nnoremap <C-k> :NERDTreeTabsFind<CR>
 
             let NERDTreeShowBookmarks = 1
             let NERDTreeIgnore = [
@@ -170,6 +171,17 @@
                 \   '^__pycache__$',
             \   ]
             let NERDTreeShowHidden = 1
+        endif
+    " }
+
+    " Startify {
+        if isdirectory(expand("~/.vim/bundle/vim-startify"))
+            autocmd VimEnter *
+                        \   if !argc()
+                        \ |   Startify
+                        \ |   NERDTree
+                        \ |   wincmd w
+                        \ | endif
         endif
     " }
 
