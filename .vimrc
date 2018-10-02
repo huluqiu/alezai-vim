@@ -309,7 +309,7 @@
             let g:vim_markdown_new_list_item_indent = 0
             let g:vim_markdown_toc_autofit = 1
             "plantuml
-            let g:plantuml_executable_script='java -jar ~/Documents/lib/java/plantuml.jar'
+            let g:plantuml_executable_script='java -jar -DPLANTUML_LIMIT_SIZE=8192 ~/Documents/lib/java/plantuml.jar'
         endif
     " }
 
