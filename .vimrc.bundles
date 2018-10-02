@@ -60,6 +60,7 @@ Plug 'junegunn/vim-plug'
 " Markdown {
     Plug 'godlygeek/tabular'
     Plug 'JamshedVesuna/vim-markdown-preview'
+    Plug 'plasticboy/vim-markdown'
 " }
 
 " Polyglot {
