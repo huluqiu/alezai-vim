@@ -320,4 +320,10 @@
             let vim_markdown_preview_github=1
         endif
     " }
+
+    " vim-multiple-cursors {
+        if !has('gui_running')
+            let g:multi_cursor_select_all_key='<leader><C-n>'
+        endif
+    " }
 " }
