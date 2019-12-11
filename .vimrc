@@ -6,6 +6,8 @@
 
 " General {
     set background=dark         " Assume a dark background
+    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+    set termencoding=utf-8
     set encoding=utf-8
     let $LANG='en_US'
     set langmenu=en_US
@@ -276,6 +278,7 @@
             \   'javascript': ['eslint'],
             \}
 
+            let g:ale_set_highlights = 0
             let g:ale_sign_column_always = 1
             let g:ale_sign_error = '✗'
             let g:ale_sign_warning = '⚠'

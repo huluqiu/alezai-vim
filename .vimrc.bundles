@@ -36,6 +36,7 @@ Plug 'junegunn/vim-plug'
     Plug 'scrooloose/nerdcommenter'
     Plug 'Vimjas/vim-python-pep8-indent'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'embear/vim-foldsearch'
 " }
 
 " Snippets & AutoComplete {
@@ -65,5 +66,6 @@ Plug 'junegunn/vim-plug'
 
 " Polyglot {
     Plug 'huluqiu/vim-polyglot'
+    Plug 'huluqiu/vim-logcat'
 " }
 call plug#end()
