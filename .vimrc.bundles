@@ -16,7 +16,7 @@ Plug 'junegunn/vim-plug'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mileszs/ack.vim'
     Plug 'majutsushi/tagbar'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'mhinz/vim-startify'
     "Distraction-free writing in Vim
@@ -40,9 +40,15 @@ Plug 'junegunn/vim-plug'
 " }
 
 " Snippets & AutoComplete {
-    Plug 'Valloric/YouCompleteMe'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
 " }
 
 " AsyncTool {

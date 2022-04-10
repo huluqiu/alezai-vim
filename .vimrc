@@ -27,6 +27,9 @@
     syntax on                   " Syntax highlighting
 
     set mouse=""
+
+    let g:python_host_prog = '~/.pyenv/shims/python'
+    let g:python3_host_prog = '~/.pyenv/shims/python3'
 " }
 
 " Vim UI {
@@ -251,6 +254,14 @@
             nnoremap gd :YcmCompleter GoTo<CR>
             " Disable the neosnippet preview candidate window
             set completeopt-=preview
+        endif
+    " }
+
+    " deoplete {
+        if isdirectory(expand("~/.vim/bundle/deoplete.nvim/"))
+            let g:deoplete#enable_at_startup = 1
+            " <TAB>: completion.
+            inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
         endif
     " }
 
